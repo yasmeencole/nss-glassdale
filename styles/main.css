@@ -1,0 +1,15 @@
+.criminalsList {
+    border: 2px solid rebeccapurple;
+    margin: 3px;
+    width: 50%;
+}
+/* border2px margin10px width25% */
+
+.criminal__card {
+    border: 2px dotted black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 1em;
+    width: 50%;
+}
