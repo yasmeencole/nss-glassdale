@@ -14,7 +14,7 @@ export const ConvictionList = () => {
             }
 
             convictionsContainer.innerHTML += `
-            <h3>Glassdale Crimes</h3>
+            <h2>Glassdale Crimes</h2>
             <div class="convictionsList">
                 ${convictionsHTMLRepresentations}
             </div>
