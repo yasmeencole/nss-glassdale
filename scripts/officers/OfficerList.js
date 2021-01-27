@@ -1,23 +1,34 @@
-import { getOfficers, useOfficers } from "./OfficerProvider.js"
+import { getOfficers } from "./OfficerProvider.js"
 import { Officer } from "./Officer.js"
+import { useConvictions } from "./../convictions/ConvictionProvider.js"
+//./../officers/OfficerProvider.js  needed to go up a directory
 
+const eventHub = document.querySelector(".container")
 const officersContainer = document.querySelector(".officersContainer")
 
+
+const renderToDom = (officerCollection) => {
+    let officersHTMLRepresentations = ""
+
+    for (const officer of officerCollection) {
+        officersHTMLRepresentations += Officer(officer)
+    }
+
+    officersContainer.innerHTML = `
+            <div class="officers">
+                ${officersHTMLRepresentations}
+            </div>`
+}
+
+
 export const OfficerList = () => {
+
     getOfficers()
-        .then(() => {
-            const officerArray = useOfficers()
-            let officersHTMLRepresentations = ""
+    .then(() => {
+        const officersArray = useConvictions()
+        renderToDom(officersArray)
 
-            for (const officerObject of officerArray) {
-                officersHTMLRepresentations += Officer(officerObject) 
-            }
-
-            officersContainer.innerHTML += `
-                <h3>Glassdale Officers</h3>
-                <div class="officersList">
-                    ${officersHTMLRepresentations}
-                </div>
-            `
     })
 }
+
+

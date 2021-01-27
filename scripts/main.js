@@ -1,14 +1,12 @@
-// import {getCriminals, useCriminals} from "./criminals/CriminalProvider.js"
-import {CriminalList} from "./criminals/CriminalList.js"
-import { ConvictionSelect} from "./convictions/ConvictionSelect.js"
+import { CriminalList } from "./criminals/CriminalList.js"
+import { ConvictionSelect } from "./convictions/ConvictionSelect.js"
+import { OfficerList } from "./officers/OfficerList.js"
+import { OfficerSelect } from "./officers/OfficerSelect.js"
 
-// getCriminals();
-// useCriminals();
 CriminalList();
 ConvictionSelect();
-// import { ConvictionList } from "./convictions/ConvictionList.js"
-
-// ConvictionList();
+OfficerList();
+OfficerSelect();
 
 //verified all provider list work, provider files print in console
 
