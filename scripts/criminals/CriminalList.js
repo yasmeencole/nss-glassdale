@@ -2,11 +2,10 @@ import { getCriminals, useCriminals } from './CriminalProvider.js'
 import { Criminal } from './Criminal.js'
 import { useConvictions } from "./../convictions/ConvictionProvider.js"
 import { useOfficers } from "./../officers/OfficerProvider.js"
-//./../convictions/ConvictionProvider.js  needed to go up a direct
+//./../convictions/ConvictionProvider.js  needed to go up a directory
 
 const eventHub = document.querySelector(".container")
 const criminalsContainer = document.querySelector(".criminalsContainer")
-
 
 const renderToDom = (criminalCollection) => {
     let criminalsHTMLRepresentations = ""
@@ -22,7 +21,6 @@ criminalsContainer.innerHTML = `
             </div>`
 }
 
-
 export const CriminalList = () => {
 
     getCriminals()
@@ -33,15 +31,10 @@ export const CriminalList = () => {
     })
 }
 
-
 // Listen for the "crimeChosen" custom event you dispatched in ConvictionSelect
 eventHub.addEventListener("crimeChosen", crimeChosenEvent => {
     if (crimeChosenEvent.detail.crimeThatWasChosen !== "0") {
       // debugger
-    /* 
-        We have the the id of the conviction that the user selected from the drop down (crimeChosenEvent.target.crimeThatWasChosen). But each criminal object has the name of the crime they were convicted for. So we need to get the name of the conviction associated with the unique identifier. To get the name, we get the conviction object which has the property for name. 
-      */
-
       // Get a copy of the array of convictions from the data provider
     const convictionsArray = useConvictions()
 
@@ -53,19 +46,10 @@ eventHub.addEventListener("crimeChosen", crimeChosenEvent => {
       // debugger
     console.log(chosenConvictionObject.name)
 
-/*
-Filter the criminals application state down to the people that committed the crime
-      */
-
       // Get a copy of the array of criminals from the data provider
     const criminalsArray = useCriminals()
 
-    /*
-        Now that we have the name of the chosen crime, filter the criminals data down to the people that committed the crime
-      */
-    //  debugger
     const filteredCriminalsArray = criminalsArray.filter(criminalObj => criminalObj.conviction === chosenConvictionObject.name)
-
 
     /*
         Then invoke render() and pass the filtered collection as
@@ -82,35 +66,22 @@ eventHub.addEventListener("officerChosen", officerChosenEvent => {
     /* 
         We have the the id of the officer that the user selected from the drop down (officerChosenEvent.target.officerThatWasChosen). But each officer object has the name of the officer. So we need to get the name of the conviction associated with the unique identifier. To get the name, we get the conviction object which has the property for name. 
       */
-
       // Get a copy of the array of officers from the data provider
     const officersArray = useOfficers()
-
       // Use the find method to get the first object in the convictions array that has the same id as the id of the chosen crime
     const chosenOfficerObject = officersArray.find(officerObj => {
-        // console.log("currently checking", officerObj)
         return officerObj.id === parseInt(officerChosenEvent.detail.officerThatWasChosen)
     })
-      // debugger
-    console.log(chosenOfficerObject.name)
-
+    // console.log(chosenOfficerObject.name)
 /*
 Filter the officer application state down to the people that committed the crime
       */
-
       // Get a copy of the array of officers from the data provider
     const criminalsArray = useCriminals()
 
-    /*
-        Now that we have the name of the chosen crime, filter the criminals data down to the people that committed the crime
-      */
-    //  debugger
     const filteredCriminalsArray = criminalsArray.filter((criminalObj) => criminalObj.arrestingOfficer === chosenOfficerObject.name)
-// debugger
-
     /*
-        Then invoke render() and pass the filtered collection as
-        an argument
+        Then invoke render() and pass the filtered collection as an argument
       */
     renderToDom(filteredCriminalsArray)
     }
