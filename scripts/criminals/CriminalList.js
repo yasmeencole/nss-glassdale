@@ -18,6 +18,7 @@ criminalsContainer.innerHTML = `
         <h3>Glassdale Criminals</h3>
             <div class="criminals">
                 ${criminalsHTMLRepresentations}
+                
             </div>`
 }
 
