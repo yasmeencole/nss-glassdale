@@ -10,16 +10,14 @@ eventHub.addEventListener("showNotesClicked", customEvent => {
 })
 
 const render = (noteArray) => {
-    let noteHTMLRepresentations = ""
-
-    for (const note of noteArray) {
-    noteHTMLRepresentations += Note(note)
-    }
+    const allNotesConvertedToStrings =noteArray.map(noteObject => {
+        return NoteHTMLConverter(noteObject)
+    }).join("")
 
     contentTarget.innerHTML =`
     <h3>Case Motes</h3>
         <div class="noteList">
-            ${NoteHTMLConverter}
+            ${allNotesConvertedToStrings}
         </div>
 `
 }
@@ -33,6 +31,10 @@ export const NoteList = () => {
         })
 }
 
-eventHub.addEventListener("notesStateChanged", )
+eventHub.addEventListener("notesStateChanged", event => {
+    if (contentTarget.innerHTML !== "") {
+        NoteList()
+    }
+})
 
 

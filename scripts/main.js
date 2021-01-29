@@ -4,7 +4,7 @@ import { OfficerList } from "./officers/OfficerList.js"
 import { OfficerSelect } from "./officers/OfficerSelect.js"
 import { NoteForm } from "./notes/NoteForm.js"
 import { ShowNoteButton } from "./notes/ShowNotesButton.js"
-// import from "./notes/NoteList.js"
+import { } from "./notes/NoteList.js"
 
 // import { saveNote } from "./notes/NoteDataProvider.js"
 
@@ -20,6 +20,6 @@ ShowNoteButton();
 
 //list files print on actual page, officer and criminal list work. not convictions
 
-console.log("Hello Yasmeen have a spectacular day!")
+console.log("Be as Ambitious as Elon!")
 
 

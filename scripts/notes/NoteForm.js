@@ -9,23 +9,25 @@ const eventHub = document.querySelector(".container")
 
 const render = () => {
 
-    return contentTarget.innerHTML = `
-        <label for="note-text">Name: </label>
-        <input type="text" id="note-name">
+    contentTarget.innerHTML = `
+        <form action="">
+            <label for="note-text">Name: </label>
+            <input type="text" id="note-name">
 
-        <label for="note-text">Date: </label>
-        <input type="date" id="note-date">
+            <label for="note-text">Date: </label>
+            <input type="date" id="note-date">
 
-        <label for="note-text">Note: </label>
-        <input type="text" id="note-text">
+            <label for="note-text">Note: </label>
+            <input type="text" id="note-text">
 
-        <label for="note-text">Suspect: </label>
-        <input type="text" id="note-suspect">
+            <label for="note-text">Suspect: </label>
+            <input type="text" id="note-suspect">
 
-        <label for="note-text">Author: </label>
-        <input type="text" id="note-author">
+            <label for="note-text">Author: </label>
+            <input type="text" id="note-author">
 
-        <button type="submit" id="saveNote">Save Note</button>
+            <button type="submit" id="saveNote">Save Note</button>
+        </form>
     `
 }
 

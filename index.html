@@ -11,25 +11,32 @@
 <body>
     
     <main class="container">
+        <h1>Glassdale Police Department</h1>
         <header>
             <div class="filters">
+                <p>Filter Criminals By:</p>
                 <div class="filter filters__crime"></div>
-                <div class="filter filters__incarceration"></div>
+    
+                <p>or</p>
+    
                 <div class="filter filters__officer"></div>
+                <div class="filter filters__incarceration"></div>
             </div>
         </header>
-
-
-        <article class="noteFormContainer"></article>
-        <article class="criminalsContainer" id="criminalsContainer"></article>
-        <article class="officersContainer"></article>    
-        <article class="convictionsContainer"></article>
         
-        <aside class="noteListContainer">
-            <div class="noteListButton"></div>
-            <article class="noteList"></article>
-        </aside>
-    
+        <div class="caseDataContainer">
+            <section>
+                <article class="criminalsContainer" id="criminalsContainer"></article>
+                <article class="officersContainer"></article>    
+                <article class="convictionsContainer"></article>
+            </section>
+            
+            <aside class="noteListContainer">
+                <article class="noteFormContainer"></article>
+                <div class="noteListButton"></div>
+                <article class="noteList"></article>
+            </aside>
+        </div>
     </main>
 
     <script type="module" src="./scripts/main.js"></script>
