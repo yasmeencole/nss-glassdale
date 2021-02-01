@@ -1,4 +1,7 @@
-//html representation
+//html representation // <button id="associates--${criminal.id}">Associate Alibis</button>
+
+import { AlibisButton } from "../alibis/AlibisButton.js"
+
 export const Criminal = (criminalObj) => {
     return `
         <article class="criminal">
@@ -7,9 +10,7 @@ export const Criminal = (criminalObj) => {
             <p class="criminal__crime">Crime: ${criminalObj.conviction}</p>
             <p class="criminal__incarcerationStart">Term Start: ${new Date(criminalObj.incarceration.start).toLocaleDateString('en-US')}</p>
             <p class="criminal__incarcerationEnd">Term End: ${new Date(criminalObj.incarceration.end).toLocaleDateString('en-US')}</p>
-
-            
+            ${AlibisButton(criminalObj)}
             </article>    
             `
         }
-        // <button id="associates--${criminal.id}">Associate Alibis</button>
