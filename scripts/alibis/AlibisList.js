@@ -11,6 +11,7 @@ export const AlibisList = (criminalObj) => {
     <div class="associate__alibi">Alibi: ${associate.alibi}</div>
     </section>`
     }).join("")}`
+    
     contentContainer.innerHTML = associatesAlibiHTMLRepresentations
 }
 
