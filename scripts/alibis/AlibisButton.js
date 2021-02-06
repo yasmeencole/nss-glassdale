@@ -14,7 +14,7 @@ eventHub.addEventListener("click", clickEvent => {
                 criminalId: parseInt(criminalId)
             }
         })
-        console.log('customEvent: ', customEvent);
+        // console.log('customEvent: ', customEvent);
         eventHub.dispatchEvent(customEvent)
     }
 })

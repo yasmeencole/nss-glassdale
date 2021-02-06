@@ -1,5 +1,3 @@
-//html representation // <button id="associates--${criminal.id}">Associate Alibis</button>
-
 import { AlibisButton } from "../alibis/AlibisButton.js"
 
 export const Criminal = (criminalObj) => {

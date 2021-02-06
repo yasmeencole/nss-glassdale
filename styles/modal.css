@@ -7,7 +7,7 @@
     bottom: 0;
     left: 0;
 }
-
+/* missining this */
 .modal--content {
     background-color: rgb(175, 184, 216);
     border: 1px solid black;

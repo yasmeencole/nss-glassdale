@@ -87,3 +87,4 @@ Filter the officer application state down to the people that committed the crime
     renderToDom(filteredCriminalsArray)
     }
 })
+
