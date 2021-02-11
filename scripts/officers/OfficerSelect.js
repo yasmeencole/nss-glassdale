@@ -12,23 +12,6 @@ const eventHub = document.querySelector(".container")
 // Get a reference to the DOM element where the <select> will be rendered
 const contentTarget = document.querySelector(".filters__officer")
 
-// On the event hub, listen for a "change" event.
-eventHub.addEventListener("change", changeEvent => {
-    // Only do this if the `officerSelect` element was changed
-    if (changeEvent.target.id === "officerSelect") {
-
-        // Create custom event. Provide an appropriate name.
-        const customEvent = new CustomEvent("officerChosen", {
-            detail: {
-                officerThatWasChosen: changeEvent.target.value
-            }
-        })
-
-        // Dispatch to event hub
-        eventHub.dispatchEvent(customEvent)
-    }
-})
-
 export const OfficerSelect = () => {
     // Trigger fetching the API data and loading it into application state
     getOfficers()
@@ -38,6 +21,25 @@ export const OfficerSelect = () => {
         render(officers)
     })
 }
+
+// On the event hub, listen for a "change" event.
+eventHub.addEventListener("change", changeEvent => {
+    // Only do this if the `officerSelect` element was changed
+    if (changeEvent.target.id === "officerSelect") {
+        const officerThatWasChosen = changeEvent.target.value
+        // Create custom event. Provide an appropriate name.
+        const customEvent = new CustomEvent("officerChosen", {
+            detail: {
+                officerThatWasChosen: officerThatWasChosen
+            }
+        })
+
+        // Dispatch to event hub
+        eventHub.dispatchEvent(customEvent)
+    }
+})
+
+
 
 const render = officersCollection => {
         /*

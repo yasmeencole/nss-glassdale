@@ -1,4 +1,4 @@
-import { AlibisButton } from "../alibis/AlibisButton.js"
+import { AssociatesButton } from "../associates/AssociatesButton.js"
 
 export const Criminal = (criminalObj) => {
     return `
@@ -8,7 +8,7 @@ export const Criminal = (criminalObj) => {
             <p class="criminal__crime">Crime: ${criminalObj.conviction}</p>
             <p class="criminal__incarcerationStart">Term Start: ${new Date(criminalObj.incarceration.start).toLocaleDateString('en-US')}</p>
             <p class="criminal__incarcerationEnd">Term End: ${new Date(criminalObj.incarceration.end).toLocaleDateString('en-US')}</p>
-            ${AlibisButton(criminalObj)}
+            ${AlibisButton(AssociatesButton)}
             </article>    
             `
         }

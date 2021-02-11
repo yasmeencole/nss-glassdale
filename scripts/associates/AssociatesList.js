@@ -1,6 +1,6 @@
 import { useCriminals } from '../criminals/CriminalProvider.js'
 
-export const AlibisList = (criminalObj) => {
+export const AssociatesList = (criminalObj) => {
     const contentContainer = document.querySelector(".associatesAlibiContainer")
 
     const associatesAlibiHTMLRepresentations = `
@@ -17,11 +17,11 @@ export const AlibisList = (criminalObj) => {
 
 const eventHub = document.querySelector(".container")
 eventHub.addEventListener("AssociatesClicked", clickEvent => {
-    console.log("event", clickEvent)
+    // console.log("event", clickEvent)
     const selectedCriminalId = clickEvent.detail.criminalId
     const criminalsArray = useCriminals()
     const selectedCriminal = criminalsArray.find((criminalObj) => criminalObj.id === selectedCriminalId)
-    console.log('selectedCriminal: ', selectedCriminal)
-    AlibisList(selectedCriminal)
+    // console.log('selectedCriminal: ', selectedCriminal)
+    AssociatesList(selectedCriminal)
 
 })

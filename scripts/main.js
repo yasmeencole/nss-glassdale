@@ -5,8 +5,8 @@ import { OfficerSelect } from "./officers/OfficerSelect.js"
 import { NoteForm } from "./notes/NoteForm.js"
 import { ShowNoteButton } from "./notes/ShowNotesButton.js"
 import { } from "./notes/NoteList.js"
-import { AlibisButton } from "./alibis/AlibisButton.js"
-import { AlibisList } from "./alibis/AlibisList.js"
+import { AssociatesButton } from "./associates/AssociatesButton.js"
+import { AssociatesList } from "./associates/AssociatesList.js"
 
 // import { saveNote } from "./notes/NoteDataProvider.js"
 
@@ -16,8 +16,8 @@ OfficerList();
 OfficerSelect();
 NoteForm();
 ShowNoteButton();
-AlibisButton();
-AlibisList();
+AssociatesButton();
+AssociatesList();
 // saveNote(newNote);
 
 console.log("Be as Ambitious as Elon!")

@@ -1,11 +1,10 @@
-import "./AlibisList.js"
+import "./AssociatesList.js"
 // debugger
-export const AlibisButton = (criminalObj) => {
-    return `<button id="associates--${criminalObj.id}">Associate Alibis</button>`
+export const AssociatesButton = (criminalObj) => {
+    return `<button id="associates--${criminalObj.id}">Associate Associates</button>`
 }
 
 const eventHub = document.querySelector(".container")
-
 eventHub.addEventListener("click", clickEvent => {
     if(clickEvent.target.id.startsWith("associates--")) {
         const [prefix, criminalId] = clickEvent.target.id.split("--")

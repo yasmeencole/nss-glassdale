@@ -2,9 +2,9 @@ import { useCriminals } from "../criminals/CriminalProvider.js"
 
 const contentContainer = document.querySelector(".associatesAlibiContainer")
 
-export const AlibisModal = (criminalObj) => {
-    const associatesAlibiHTMLRepresentations = `
-    <div id="alibi__modal" class="modal--parent">
+export const AssociatesModal = (criminalObj) => {
+    const associatesHTMLRepresentations = `
+    <div id="associates__modal" class="modal--parent">
         <div class="modal--content">
             <h1>Known associates for ${criminalObj.name}</h1>
             ${criminalObj.known_associates.map(associate => {
@@ -18,7 +18,7 @@ export const AlibisModal = (criminalObj) => {
     </div>
         `
 
-    contentContainer.innerHTML = associatesAlibiHTMLRepresentations
+    contentContainer.innerHTML = associatesHTMLRepresentations
 }
 
 const eventHub = document.querySelector(".container")
