@@ -1,6 +1,8 @@
 import { useCriminals } from "../criminals/CriminalProvider.js"
+import "../associates/AssociatesButton.js"
 
-const contentContainer = document.querySelector(".associatesAlibiContainer")
+const eventHub = document.querySelector(".container")
+const contentTarget = document.querySelector(".associatesAlibiContainer")
 
 export const AssociatesModal = (criminalObj) => {
     const associatesHTMLRepresentations = `
@@ -31,7 +33,9 @@ eventHub.addEventListener("AssociatesClicked", clickEvent => {
 
 
 eventHub.addEventListener("click", clickEvent => {
-    if (clickEvent.target.id === "modal--close") {
+    if (clickEvent.target.id.startsWith()
+        
+        === "modal--close") {
         closeModal()
     }
 })
