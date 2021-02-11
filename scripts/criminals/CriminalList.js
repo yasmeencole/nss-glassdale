@@ -7,19 +7,11 @@ import { useOfficers } from "./../officers/OfficerProvider.js"
 const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".criminalsContainer")
 
-criminalsContainer.innerHTML = `
-<h3>Glassdale Criminals</h3>
-<div class="criminals">
-${criminalsHTMLRepresentations}
-</div>`
-
-
 export const CriminalList = () => {
-  
-  getCriminals()
-  .then(() => {
-    const criminals = useCriminals()
-    render(criminals)
+    getCriminals()
+      .then(() => {
+      const criminals = useCriminals()
+      render(criminals)
     
   })
 }
@@ -82,9 +74,15 @@ eventHub.addEventListener("officerChosen", officerChosenEvent => {
 
 
 const render = (criminalCollection) => {
-    let criminalsHTMLRepresentations = ""
+  let criminalsHTMLRepresentations = ""
+  
+  for (const criminal of criminalCollection) {
+  criminalsHTMLRepresentations += Criminal(criminal)
+  }
 
-    for (const criminal of criminalCollection) {
-    criminalsHTMLRepresentations += Criminal(criminal)
-    }
+  contentTarget.innerHTML = `
+<h3>Glassdale Criminals</h3>
+<div class="criminals">
+${criminalsHTMLRepresentations}
+</div>`
   }    

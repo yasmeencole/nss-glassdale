@@ -21,20 +21,21 @@ eventHub.addEventListener("showNotesClicked", customEvent => {
 })
 
 const render = (noteCollection, criminalCollection) => {
-    contentTarget.innerHTML = noteCollection.map(note => {
-        const allNotesConvertedToStrings =noteArray.map(noteObject => {
-            const relatedCriminal = criminalCollection.find(criminal => criminal.id === note.criminalId)
+//     contentTarget.innerHTML = noteCollection.map(note => {
+//         const allNotesConvertedToStrings =noteArray.map(noteObject => {
+//             const relatedCriminal = criminalCollection.find(criminal => criminal.id === note.criminalId)
 
-        return NoteHTMLConverter(noteObject)
-    }).join("")
+//         return NoteHTMLConverter(noteObject)
+//     }).join("")
 
-    contentTarget.innerHTML =`
-    <h3>Case Motes</h3>
-        <div class="noteList">
-            ${allNotesConvertedToStrings}
-        </div>
-`
+//     contentTarget.innerHTML =`
+//     <h3>Case Motes</h3>
+//         <div class="noteList">
+//             ${allNotesConvertedToStrings}
+//         </div>
+// `
 }
+
 
 eventHub.addEventListener("notesStateChanged", event => {
     if (contentTarget.innerHTML !== "") {
