@@ -1,19 +1,19 @@
 import "./AssociatesList.js"
 
-export const AssociatesButton = (criminalObj) => {
+export const AssociatesButton = () => {
     return `<button id="associates--${criminalObj.id}">Associates Albis</button>`
 }
 
 const eventHub = document.querySelector(".container")
 
 eventHub.addEventListener("click", clickEvent => {
-    
+    console.log(clickEvent)
     if(clickEvent.target.id.startsWith("associates--")) {
-        // const alibiThatWasChosen = clickEvent.target.id.split("--")
+        const [prefix, id] = clickEvent.target.id.split("--")
         
         const customEvent = new CustomEvent("AssociatesClicked", {
             detail: {
-                alibiThatWasChosen: clickEvent.target.value
+                alibiThatWasChosen: id
             }
         })
         eventHub.dispatchEvent(customEvent)
