@@ -10,8 +10,8 @@ export const render = (associatesObj) => {
     <h2>Known associates for ${criminalObj.name}</h1>
     
     <section class="associate__container">
-    <div class="associate__name">Name: ${associatesObj.known_associates.name}</div>
-    <div class="associate__alibi">Alibi: ${associatesObj.known_associates.alibi}</div>
+    <div class="associate__name">Name: ${associatesObj.name}</div>
+    <div class="associate__alibi">Alibi: ${associatesObj.alibi}</div>
     </section>`
 
     contentContainer.innerHTML = associatesHTMLRepresentations

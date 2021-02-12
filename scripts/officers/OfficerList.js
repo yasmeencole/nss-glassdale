@@ -10,12 +10,12 @@ export const OfficerList = () => {
     getOfficers()
     .then(() => {
         const officersArray = useOfficers()
-        renderToDom(officersArray)
+        render(officersArray)
 
     })
 }
 
-const renderToDom = (officerCollection) => {
+const render = (officerCollection) => {
     let officersHTMLRepresentations = ""
 
     for (const officer of officerCollection) {
@@ -23,10 +23,11 @@ const renderToDom = (officerCollection) => {
     }
 
     officersContainer.innerHTML = `
-            <div class="officers">
-                ${officersHTMLRepresentations}
-            </div>`
-}
+        <h3>Glassdale Police Officers</h3>
+        <div class="officers">${officersHTMLRepresentations}</div>
+        `
+    }
+    // <section class="officers__Container"</section>
 
 
 
