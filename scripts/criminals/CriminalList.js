@@ -82,7 +82,9 @@ const render = (criminalCollection) => {
 
   contentTarget.innerHTML = `
 <h3>Glassdale Criminals</h3>
+<section class="criminals__Container">
 <div class="criminals">
 ${criminalsHTMLRepresentations}
-</div>`
+</div>
+</section>`
   }    

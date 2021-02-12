@@ -7,8 +7,8 @@ export const AssociatesList = (criminalObj) => {
     <h2>Known Associates for ${criminalObj.name}</h2>
     ${criminalObj.known_associates.map(associate => {
     return `<section class="associate__containter">
-    <div class="associate__name">Name: ${associate.name}</div>
-    <div class="associate__alibi">Alibi: ${associate.alibi}</div>
+    <div class="associate__name">Name: ${associate.known_associates.name}</div>
+    <div class="associate__alibi">Alibi: ${associate.known_associates.alibi}</div>
     </section>`
     }).join("")}`
     

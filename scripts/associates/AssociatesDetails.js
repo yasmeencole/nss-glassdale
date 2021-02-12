@@ -1,24 +1,18 @@
 import { useCriminals } from "../criminals/CriminalProvider.js"
-import "../associates/AssociatesButton.js"
+import "./AssociatesButton.js"
+import { Criminal } from ".."
 
-const eventHub = document.querySelector(".container")
-const contentTarget = document.querySelector(".associatesAlibiContainer")
+const contentContainer = document.querySelector(".associateDetails")
 
-export const AssociatesModal = (criminalObj) => {
+export const render = (associatesObj) => {
+
     const associatesHTMLRepresentations = `
-    <div id="associates__modal" class="modal--parent">
-        <div class="modal--content">
-            <h1>Known associates for ${criminalObj.name}</h1>
-            ${criminalObj.known_associates.map(associate => {
-                return `<section class="associate__container">
-            <div class="associate__name">${associate.name}</div>
-            <div class="associate__alibi">Alibi: ${associate.alibi}</div>
-            </section>`
-    }).join("")}
-    <button id="modal--close">close modal</button>
-        </div>
-    </div>
-        `
+    <h2>Known associates for ${criminalObj.name}</h1>
+    
+    <section class="associate__container">
+    <div class="associate__name">Name: ${associatesObj.known_associates.name}</div>
+    <div class="associate__alibi">Alibi: ${associatesObj.known_associates.alibi}</div>
+    </section>`
 
     contentContainer.innerHTML = associatesHTMLRepresentations
 }
@@ -30,16 +24,3 @@ eventHub.addEventListener("AssociatesClicked", clickEvent => {
     const selectedCriminal = criminalsArray.find((criminalObj) => criminalObj.id === selectedCriminalId)
     AssociatesModal(selectedCriminal)
 })
-
-
-eventHub.addEventListener("click", clickEvent => {
-    if (clickEvent.target.id.startsWith()
-        
-        === "modal--close") {
-        closeModal()
-    }
-})
-
-const closeModal = () => {
-    contentContainer.innerHTML = ""
-}
