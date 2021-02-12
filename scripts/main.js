@@ -6,7 +6,7 @@ import { NoteForm } from "./notes/NoteForm.js"
 import { ShowNoteButton } from "./notes/ShowNotesButton.js"
 import { } from "./notes/NoteList.js"
 import { AssociatesButton } from "./associates/AssociatesButton.js"
-import { AssociatesList } from "./associates/AssociatesList.js"
+import "./associates/AssociatesList.js"
 
 // import { saveNote } from "./notes/NoteDataProvider.js"
 
@@ -17,7 +17,7 @@ OfficerSelect();
 NoteForm();
 ShowNoteButton();
 AssociatesButton();
-AssociatesList();
+// AssociatesList();
 // saveNote(newNote);
 
 console.log("Be as Ambitious as Elon!")

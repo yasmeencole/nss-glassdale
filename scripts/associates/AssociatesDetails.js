@@ -24,3 +24,4 @@ eventHub.addEventListener("AssociatesClicked", clickEvent => {
     const selectedCriminal = criminalsArray.find((criminalObj) => criminalObj.id === selectedCriminalId)
     AssociatesModal(selectedCriminal)
 })
+

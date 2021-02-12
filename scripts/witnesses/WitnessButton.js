@@ -32,5 +32,5 @@ eventHub.addEventListener("click", clickEvent => {
 
 
 contentTarget.innerHTML =`
-    <button id="display-witness-button">Witness Statements</button>
+    <button id="witnessutton">Witness Statements</button>
     `
