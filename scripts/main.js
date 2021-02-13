@@ -16,6 +16,7 @@ OfficerList();
 OfficerSelect();
 NoteForm();
 ShowNoteButton();
+NoteList();
 AssociatesButton(criminalObj);
 
 // AssociatesList();

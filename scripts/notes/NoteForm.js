@@ -12,36 +12,31 @@ export const NoteForm = () => {
         })
 }
 
-const render = (criminalsArray) => {
+export const render = (criminalsArray) => {
+    console.log("Notey note notes!!!")
     contentTarget.innerHTML = `
         <h2>Notes</h2>
-        <form action="">
+        <form action="" class="notesForm">
         <fieldset>
-        <fieldset>
-            <label for="note-text">Name: </label>
-            <select name="note-criminalId" id="note-criminalId">
+            <label for="noteName">Name: </label>
+            <select name="noteCriminalId" id="noteCriminalId">
             <option value="0">Please select a Suspect...</option>
             ${criminalsArray.map(criminal => 
                 `<option value="${criminal.id}">${criminal.name}</option>`).join("")
             }
-        </select>
+            </select>
         </fieldset>    
         <fieldset>
-            <label for="note-text">Date: </label>
-            <input type="date" id="note-date">
+            <label for="noteDate">Date: </label>
+            <input type="date" id="noteDate">
         </fieldset>
         <fieldset>
-        <label for="note-text">Author: </label>
-        <input type="text" id="note-author">
+            <label for="noteAuthor">Author: </label>
+            <input type="text" id="noteAuthor">
         </fieldset>
         <fieldset>
-            <label for="note-text">Note: </label>
-            <input type="text" id="note-text">
-        </fieldset>    
-        <fieldset>
-            <label for="note-text">Suspect: </label>
-            <input type="text" id="note-suspect">
-        </fieldset>
+            <label for="noteText">Note: </label>
+            <input type="text" id="noteText">
         </fieldset>
         <button type="submit" id="saveNote">Save Note</button>
         </form>
@@ -53,22 +48,22 @@ eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "saveNote") {
         clickEvent.preventDefault()
         //need to create one for each obj prop
-        const name = document.getElementById("note-name").value
-        const date = document.getElementById("note-date").value
-        const author = document.getElementById("note-author").value
-        const text = document.getElementById("note-text").value
-        const suspect = document.getElementById("note-suspect").value
-        const criminalId = document.getElementById("note-criminalId").value
-
+        const noteName = document.getElementById("#noteName").value
+        const noteDate = document.getElementById("#noteDate").value
+        const noteAuthor = document.getElementById("#noteAuthor").value
+        const noteText = document.getElementById("#noteText").value
+        const noteSuspect = document.getElementById("#noteSuspect").value
+        const noteCiminalId = parseInt(document.getElementById("#noteCiminalId")).value
+console.log(NoteForm)
 //debugger
         // Make a new object representation of a note
         const newNote = {
-            "name": name,
-            "date": date,
-            "author": author,
-            "text": text,
-            "criminalId": parseInt(criminalId),
-            "suspect": suspect
+            "name": noteName,
+            "date": noteDate,
+            "author": noteAuthor,
+            "text": noteText,
+            "criminalId": noteCiminalId,
+            "suspect": noteSuspect
         }
 
         // Change API state and application state

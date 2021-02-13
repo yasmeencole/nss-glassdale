@@ -28,7 +28,7 @@ const render = (noteArray, criminalsArray) => {
     }).join("")
 
     contentTarget.innerHTML =`
-    <h3>Case Motes</h3>
+    <h3>Case Notes</h3>
         <div class="noteList">
             ${allNotesConvertedToStrings}
         </div>
