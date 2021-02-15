@@ -35,7 +35,7 @@ const render = (noteArray, criminalsArray) => {
 `
 }
 
-eventHub.addEventListener("notesStateChanged", event => {
+eventHub.addEventListener("noteStateChanged", event => {
     if (contentTarget.innerHTML !== "") {
         NoteList()
     }
