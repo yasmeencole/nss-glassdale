@@ -73,6 +73,8 @@ eventHub.addEventListener("officerChosen", officerChosenEvent => {
 })
 
 
+
+
 const render = (criminalCollection) => {
   let criminalsHTMLRepresentations = ""
   
@@ -87,4 +89,4 @@ const render = (criminalCollection) => {
 ${criminalsHTMLRepresentations}
 </div>
 </section>`
-  }    
+}

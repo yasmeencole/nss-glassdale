@@ -14,23 +14,23 @@ const contentTarget = document.querySelector(".filters__officer")
 
 export const OfficerSelect = () => {
     // Trigger fetching the API data and loading it into application state
-    getOfficers()
-        .then( () => {
-        // Get all officers from application state
-        const officers = useOfficers()
-        render(officers)
-    })
+        getOfficers()
+        .then(() => {
+            // Get all officers from application state
+            const officers = useOfficers()
+            render(officers)
+        })
 }
 
 // On the event hub, listen for a "change" event.
-eventHub.addEventListener("change", changeEvent => {
+eventHub.addEventListener("change", officerChosenEvent => {
     // Only do this if the `officerSelect` element was changed
-    if (changeEvent.target.id === "officerSelect") {
-        const officerThatWasChosen = changeEvent.target.value
+    if (officerChosenEvent.target.id === "officerSelect") {
+        const selectedOfficer = officerChosenEvent.target.value
         // Create custom event. Provide an appropriate name.
         const customEvent = new CustomEvent("officerChosen", {
             detail: {
-                officerThatWasChosen: officerThatWasChosen
+                officerThatWasChosen: selectedOfficer
             }
         })
 
@@ -72,8 +72,10 @@ const render = officersCollection => {
         <select class="dropdown" id="officerSelect">
             <option value="0">Please select a officer...</option>
             ${officersCollection.map(officerObject => 
-            `<option value="${officerObject.id}">${officerObject.name}</option>`).join("")
+            `<option value="${officerObject.name}">${officerObject.name}</option>`).join("")
             }
         </select>
     `
 }
+
+eventHub.addEventListener("crimeChose", crimeChosenEvent => document.querySelector("#officerSelect").value = 0)

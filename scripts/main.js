@@ -7,6 +7,7 @@ import { ShowNoteButton } from "./notes/ShowNotesButton.js"
 import "./notes/NoteList.js"
 import "./associates/AssociatesButton.js"
 import "./associates/AssociatesList.js"
+// import {WitnessButton} from "./witnesses/WitnessButton.js"
 
 // import { saveNote } from "./notes/NoteDataProvider.js"
 
@@ -16,8 +17,8 @@ OfficerList();
 OfficerSelect();
 NoteForm();
 ShowNoteButton();
-NoteList();
-AssociatesButton(criminalObj);
+// AssociatesButton(criminalObj);
+// WitnessButton();
 
 // AssociatesList();
 // saveNote(newNote);

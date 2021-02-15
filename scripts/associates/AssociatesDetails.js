@@ -1,6 +1,5 @@
 import { useCriminals } from "../criminals/CriminalProvider.js"
 import "./AssociatesButton.js"
-import { Criminal } from ".."
 
 const contentContainer = document.querySelector(".associateDetails")
 
