@@ -1,5 +1,5 @@
 import { useWitnesses, getWitnesses } from "../witnesses/WitnessProvider.js"
-import { Witness } from "./Witness.js"
+// import { Witness } from "./Witness.js"
 
 const eventHub = document.querySelector(".container")
 const witnessesContainer = document.querySelector(".witnessesContainer")
