@@ -2,7 +2,7 @@ import { AssociatesButton } from "../associates/AssociatesButton.js"
 
 export const Criminal = (criminalObj) => {
     return `
-        <div class="criminal">
+        <article class="criminal">
             <h3 class="criminal__name">${criminalObj.name}</h3>
             <div class="criminal__details>
             <p class="criminal__age">Age: ${criminalObj.age}</p>
@@ -11,6 +11,6 @@ export const Criminal = (criminalObj) => {
             <p class="criminal__incarcerationEnd">Term End: ${new Date(criminalObj.incarceration.end).toLocaleDateString('en-US')}</p>
             ${AssociatesButton(criminalObj)}
             </div>
-            </div>    
-            `
-        }
+        </article>    
+    `
+}

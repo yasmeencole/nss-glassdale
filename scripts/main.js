@@ -1,27 +1,24 @@
-import { CriminalList } from "./criminals/CriminalList.js"
 import { ConvictionSelect } from "./convictions/ConvictionSelect.js"
+import { CriminalList } from "./criminals/CriminalList.js"
+import { NoteForm } from "./notes/NoteForm.js"
+import { ShowNotesButton } from "./notes/ShowNotesButton.js"
 import { OfficerList } from "./officers/OfficerList.js"
 import { OfficerSelect } from "./officers/OfficerSelect.js"
-import { NoteForm } from "./notes/NoteForm.js"
-import { ShowNoteButton } from "./notes/ShowNotesButton.js"
 import "./notes/NoteList.js"
-import "./associates/AssociatesButton.js"
-import "./associates/AssociatesList.js"
-// import {WitnessButton} from "./witnesses/WitnessButton.js"
+import { renderWitnessButton } from "./witnesses/WitnessButton.js"
+import "./witnesses/WitnessList.js"
+import { renderCriminalsButton } from "./criminals/ShowCriminalsButton.js"
 
 // import { saveNote } from "./notes/NoteDataProvider.js"
-
+OfficerList();
 CriminalList();
 ConvictionSelect();
-OfficerList();
 OfficerSelect();
 NoteForm();
-ShowNoteButton();
-// AssociatesButton(criminalObj);
-// WitnessButton();
+ShowNotesButton();
 
-// AssociatesList();
-// saveNote(newNote);
+renderWitnessButton();
+renderCriminalsButton();
 
 console.log("Be as Ambitious as Elon!")
 
