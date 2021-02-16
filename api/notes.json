@@ -2,6 +2,34 @@
   "notes": [
     {
       "id": 1
+    },
+    {
+      "criminalId": 0,
+      "date": "",
+      "author": "",
+      "text": "",
+      "id": 2
+    },
+    {
+      "criminalId": 1,
+      "date": "2021-02-16",
+      "author": "Yas",
+      "text": "Hello!",
+      "id": 3
+    },
+    {
+      "criminalId": 0,
+      "date": "",
+      "author": "",
+      "text": "",
+      "id": 4
+    },
+    {
+      "criminalId": 3,
+      "date": "2021-02-15",
+      "author": "Yas",
+      "text": "Nathan",
+      "id": 5
     }
   ]
 }

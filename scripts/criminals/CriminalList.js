@@ -64,7 +64,7 @@ eventHub.addEventListener("officerChosen", officerChosenEvent => {
    // Get a copy of the array of officers from the data provider
   const criminalsArray = useCriminals()
 
-  const filteredCriminalsArray = criminalsArray.filter((criminalObj) => criminalObj.arrestingOfficer === chosenOfficerObject.name)
+  const filteredCriminalsArray = criminalsArray.filter((criminalObj) => criminalObj.conviction === chosenOfficerObject.name)
   /*
   Then invoke render() and pass the filtered collection as an argument
    */
