@@ -1,6 +1,6 @@
 import "./AssociatesList.js"
 
-export const AssociatesButton = () => {
+export const AssociatesButton = (criminalObj) => {
     return `<button id="associates--${criminalObj.id}">Associates Albis</button>`
 }
 

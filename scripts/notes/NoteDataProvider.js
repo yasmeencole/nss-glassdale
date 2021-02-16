@@ -1,8 +1,6 @@
-let notes = []
-
 const eventHub = document.querySelector(".container")
 
-export const useNotes = () => notes.slice()
+let notes = []
 
 export const saveNote = note => {
     return fetch('http://localhost:8088/notes', {
@@ -16,17 +14,28 @@ export const saveNote = note => {
     .then(dispatchStateChangeEvent)
 }
 
-export const getNotes = () => {
-    return fetch('http://localhost:8088/notes')
-        .then(response => response.json())
-        .then(parsedNotes => {
-            notes = parsedNotes
-        })
+export const deleteNote = noteId => {
+    return fetch(`http://localhost:8088/notes/${noteId}`, {
+        method: "DELETE"
+    })
+        .then(getNotes)
+        .then(dispatchStateChangeEvent)
 }
 
+export const getNotes = () => {
+    return fetch('http://localhost:8088/notes')
+    .then(response => response.json())
+    .then(parsedNotes => {
+        notes = parsedNotes
+    })
+}
+
+export const useNotes = () => notes.slice()
+
+// event that states when the event is changed
 const dispatchStateChangeEvent = () => {
     const noteStateChangedEvent = new CustomEvent("noteStateChanged")
-
+    
     eventHub.dispatchEvent(noteStateChangedEvent)
 }
 

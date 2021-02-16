@@ -5,9 +5,18 @@ import { getCriminals, useCriminals } from "../criminals/CriminalProvider.js";
 const contentTarget = document.querySelector(".noteContainer")
 const eventHub = document.querySelector(".container")
 
+let allNotes = []
+let allCriminals = []
+
 eventHub.addEventListener("showNotesClicked", customEvent => {
     
     NoteList()
+})
+
+eventHub.addEventListener("noteStateChanged", event => {
+    if (contentTarget.innerHTML !== "") {
+        NoteList()
+    }
 })
 
 // Standard list function you're used to writing by now. BUT, don't call this in main.js! Why not?
@@ -17,26 +26,21 @@ export const NoteList = () => {
         .then(() => {
             const allNotes = useNotes()
             const allCriminals = useCriminals()
-            render(allNotes, allCriminals)
+            render()
         })
 }
 
-const render = (noteArray, criminalsArray) => {
-    const allNotesConvertedToStrings = noteArray.map(noteObject => {
-        const relatedCriminalObject = criminalsArray.find(criminal => criminal.id === noteObject.criminalId)
+const render = () => {
+    const allNotesConvertedToStrings = allNotes.map(noteObject => {
+        const relatedCriminalObject = allCriminals.find(criminal => criminal.id === noteObject.criminalId)
         return NoteHTMLConverter(noteObject, relatedCriminalObject)
     }).join("")
 
     contentTarget.innerHTML =`
-    <h3>Case Motes</h3>
-        <div class="noteList">
+    <h3>Case Notes</h3>
+        <section class="noteList">
             ${allNotesConvertedToStrings}
-        </div>
+        </section>
 `
 }
 
-eventHub.addEventListener("notesStateChanged", event => {
-    if (contentTarget.innerHTML !== "") {
-        NoteList()
-    }
-})

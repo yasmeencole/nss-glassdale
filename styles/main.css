@@ -14,6 +14,15 @@
     flex-flow: wrap;
 } */
 
-.criminal__details {
-    text-align: center;
+
+/* parent officer box */
+.officer {
+    border: 4px solid black;
+    margin: 3px;
+    padding: 20px;
+    display: flex;
 }
+
+/* .criminal__details {
+    text-align: center;
+} */

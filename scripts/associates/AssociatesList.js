@@ -1,6 +1,6 @@
 import { useCriminals } from '../criminals/CriminalProvider.js'
 
-const AssociatesList = (criminalObj) => {
+export const AssociatesList = (criminalObj) => {
     const contentContainer = document.querySelector(".associatesAlibiContainer")
 
     const associatesAlibiHTMLRepresentations = `

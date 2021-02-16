@@ -1,27 +1,44 @@
-import { useWitnesses } from "../witnesses/WitnessProvider.js"
-
-export const WitnessList = (witnessObj) => {
-    const contentContainer = document.querySelector(".witnessesContainer")
-
-    const witnessHTMLRepresentations = `
-    <h3>Witness Statements for ${witnessObj.name}</h3>
-    ${witnessObj.witness.map(witness => {
-    return `<section class="witness__containter">
-    <div class="witness__name">Name: ${witnessObj.name}</div>
-    <div class="witness__statements">Witness Statements: ${witnessObj.statements}</div>
-    </section>`
-    }).join("")}`
-    
-    contentContainer.innerHTML = witnessHTMLRepresentations
-}
+import { useWitnesses, getWitnesses } from "../witnesses/WitnessProvider.js"
+import { Witness } from "./Witness.js"
 
 const eventHub = document.querySelector(".container")
-eventHub.addEventListener("WitnessesClicked", clickEvent => {
-    console.log("event", clickEvent)
-    const selectedCriminalId = clickEvent.detail.criminalId
-    const criminalsArray = useWitnesses()
-    const selectedCriminal = criminalsArray.find((criminalObj) => criminalObj.id === selectedCriminalId)
-    console.log('selectedCriminal: ', selectedCriminal)
+const witnessesContainer = document.querySelector(".witnessesContainer")
+
+
+eventHub.addEventListener("WitnessesClicked", (clickEvent) => {
+    // console.log("event", clickEvent)
+    // const selectedCriminalId = clickEvent.detail.criminalId
+    // const criminalsArray = useWitnesses()
+    // const selectedCriminal = criminalsArray.find((criminalObj) => criminalObj.id === selectedCriminalId)
+    // console.log('selectedCriminal: ', selectedCriminal)
     WitnessList(selectedCriminal)
 
 })
+
+eventHub.addEventListener("criminalsClicked", (clickEvent) => {
+    witnessesContainer.innerHTML = ""
+})
+
+const WitnessList = () => {
+    getWitnesses()
+        .then(() => {
+            const witnessesArray = useWitnesses()
+            // console.log(witnessesArray)
+            render(witnessesArray)
+})
+}
+
+
+const render = (witnessArray) => {
+    let witnessHTMLRepresentations = ""
+    for (const witnessObj of witnessArray) {
+        witnessHTMLRepresentations += Witness(witnessObj)
+    }
+
+    witnessesContainer.innerHTML = `
+    <h2>Witness Statments</h2>
+    <section class="witnessesList">
+    ${witnessHTMLRepresentations}
+    </section>
+    `
+}
