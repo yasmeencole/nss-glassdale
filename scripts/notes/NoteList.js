@@ -24,13 +24,14 @@ export const NoteList = () => {
     getNotes()
         .then(getCriminals)
         .then(() => {
-            const allNotes = useNotes()
-            const allCriminals = useCriminals()
+            allNotes = useNotes()
+            allCriminals = useCriminals()
             render()
         })
 }
 
 const render = () => {
+    console.log(allCriminals, allNotes)
     const allNotesConvertedToStrings = allNotes.map(noteObject => {
         const relatedCriminalObject = allCriminals.find(criminal => criminal.id === noteObject.criminalId)
         return NoteHTMLConverter(noteObject, relatedCriminalObject)

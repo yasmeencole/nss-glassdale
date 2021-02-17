@@ -1,28 +1,11 @@
 {
   "notes": [
     {
-      "id": 1
-    },
-    {
-      "criminalId": 0,
-      "date": "",
-      "author": "",
-      "text": "",
-      "id": 2
-    },
-    {
       "criminalId": 1,
       "date": "2021-02-16",
       "author": "Yas",
       "text": "Hello!",
       "id": 3
-    },
-    {
-      "criminalId": 0,
-      "date": "",
-      "author": "",
-      "text": "",
-      "id": 4
     },
     {
       "criminalId": 3,
@@ -32,13 +15,6 @@
       "id": 5
     },
     {
-      "criminalId": 0,
-      "date": "",
-      "author": "",
-      "text": "",
-      "id": 6
-    },
-    {
       "criminalId": 1,
       "date": "2021-02-12",
       "author": "Yasmeen",
@@ -46,25 +22,25 @@
       "id": 7
     },
     {
-      "criminalId": 0,
-      "date": "",
-      "author": "",
-      "text": "",
-      "id": 8
+      "criminalId": 1,
+      "date": "2021-02-16",
+      "author": "fxdf",
+      "text": "xvxdvx",
+      "id": 12
     },
     {
-      "criminalId": 0,
-      "date": "",
-      "author": "",
-      "text": "",
-      "id": 9
+      "criminalId": 2,
+      "date": "2021-02-16",
+      "author": "hhh",
+      "text": "hhh",
+      "id": 13
     },
     {
-      "criminalId": 0,
-      "date": "",
-      "author": "",
-      "text": "",
-      "id": 10
+      "criminalId": 5,
+      "date": "2021-02-09",
+      "author": "fvx",
+      "text": "xvxvx",
+      "id": 14
     }
   ]
 }

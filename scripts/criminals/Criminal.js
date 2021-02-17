@@ -15,7 +15,6 @@ export const Criminal = (criminalObj, facilities) => {
                 <h4>Facilities</h4>
                 <ul>${facilities.map(f => `<li>${f.facilityName}</li>`).join("")}</ul>
             </div>
-                <button id="associates--${criminalObj.id}">Show Associates</button>
             </div>
                 ${AssociatesButton(criminalObj)}
             </article>    

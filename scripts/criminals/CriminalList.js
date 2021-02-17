@@ -20,7 +20,7 @@ export const CriminalList = () => {
               const criminals = useCriminals()
 
               // Pass all three collections of data to render()
-              render(criminals, facilitiesArray, crimianlFacilitiesArray)
+              render(criminals, crimianlFacilitiesArray, facilitiesArray)
           }
       )
 }
