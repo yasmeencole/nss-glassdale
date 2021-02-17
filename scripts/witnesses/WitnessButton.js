@@ -17,7 +17,7 @@ eventHub.addEventListener("click", clickEvent => {
 
         const witnessButtonCustomEvent = new CustomEvent("WitnessesClicked")
         
-        console.log('witnessButtonCustomEvent: ', witnessButtonCustomEvent);
+        // console.log('witnessButtonCustomEvent: ', witnessButtonCustomEvent);
         eventHub.dispatchEvent(witnessButtonCustomEvent)
 }
 })

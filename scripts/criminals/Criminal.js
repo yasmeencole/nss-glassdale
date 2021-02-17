@@ -9,14 +9,13 @@ export const Criminal = (criminalObj, facilities) => {
             <p class="criminal__crime">Crime: ${criminalObj.conviction}</p>
             <p>Arrested by: Officer ${criminalObj.arrestingOfficer}</p>
             <p class="criminal__incarcerationTerm">Incarcerated:
-                ${new Date(criminalObj.incarceration.start).toLocaleDateString('en-US')} -
-                ${new Date(criminalObj.incarceration.end).toLocaleDateString('en-US')}
+                ${new Date(criminalObj.incarceration.start).toLocaleDateString('en-US')} - ${new Date(criminalObj.incarceration.end).toLocaleDateString('en-US')}
             </p>
             <div>
                 <h4>Facilities</h4>
                 <ul>${facilities.map(f => `<li>${f.facilityName}</li>`).join("")}</ul>
             </div>
-            <button id="associates--${criminalObj.id}">Show Associates</button>
+                <button id="associates--${criminalObj.id}">Show Associates</button>
             </div>
                 ${AssociatesButton(criminalObj)}
             </article>    

@@ -61,7 +61,7 @@ eventHub.addEventListener("crimeChosen", crimeChosenEvent => {
       return convictionObj.id === parseInt(crimeChosenEvent.detail.crimeThatWasChosen)
     })
     // debugger
-    console.log(chosenConvictionObject.name)
+    // console.log(chosenConvictionObject.name)
     
     // Get a copy of the array of criminals from the data provider
     const criminalsArray = useCriminals()
