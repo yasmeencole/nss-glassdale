@@ -2,7 +2,7 @@
 // import { Witness } from "./Witness.js"
 
 const eventHub = document.querySelector(".container")
-const contentTarget = document.querySelector(".witnessesButton")
+const contentTarget = document.querySelector(".button__witnesses")
 // debugger
 
 export const renderWitnessButton = () => {
