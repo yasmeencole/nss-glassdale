@@ -1,31 +1,51 @@
 import { getCriminals, useCriminals } from './CriminalProvider.js'
 import { Criminal } from './Criminal.js'
 import { useConvictions } from "./../convictions/ConvictionProvider.js"
+import { getFacilities, useFacilities } from "./../facility/FacilityProvider.js"
+import { useCriminalFacilities, getCriminalFacilities } from "./../facility/CriminalFacilityProvider.js"
+
 
 const eventHub = document.querySelector(".container")
-const contentTarget = document.querySelector(".criminalsContainer")
+const criminalsContainer = document.querySelector(".criminalsContainer")
 
-const render = (criminalCollection) => {
+export const CriminalList = () => {
+  // Kick off the fetching of both collections of data
+  getCriminals()
+  .then(getCriminalFacilities)
+  .then(getFacilities)
+          .then(() => {
+              // Pull in the data now that it has been fetched
+              const facilitiesArray = useFacilities()
+              const crimianlFacilitiesArray = useCriminalFacilities()
+              const criminals = useCriminals()
+
+              // Pass all three collections of data to render()
+              render(criminals, crimianlFacilitiesArray, facilitiesArray)
+          }
+      )
+}
+
+const render = (criminalCollection, criminalFacilityCollection, facilityCollection) => {
   let criminalsHTMLRepresentations = ""
   
   for (const criminal of criminalCollection) {
-    criminalsHTMLRepresentations += Criminal(criminal)
+    const arrayOfCriminalFacitlityObj = criminalFacilityCollection.filter(criminalFacility => criminal.id === criminalFacility.criminalId)
+
+    const arrayOfFacilityObj = arrayOfCriminalFacitlityObj.map(criminalFacility => {
+
+      const relatedFacilityObj = facilityCollection.find(facility => facility.id === criminalFacility.facilityId)
+
+      return relatedFacilityObj
+    })
+
+    criminalsHTMLRepresentations += Criminal(criminal, arrayOfFacilityObj)
   }
 
-  contentTarget.innerHTML = `
-    <h3>Glassdale Criminals</h3>
+  criminalsContainer.innerHTML = `
+    <h2>Glassdale Criminals</h2>
     <section class="criminalsList">
     ${criminalsHTMLRepresentations}
     </section>`
-}
-
-export const CriminalList = () => {
-    getCriminals()
-      .then(() => {
-      const criminals = useCriminals()
-      render(criminals)
-    
-  })
 }
 
 // Listen for the "crimeChosen" custom event you dispatched in ConvictionSelect
@@ -41,10 +61,12 @@ eventHub.addEventListener("crimeChosen", crimeChosenEvent => {
       return convictionObj.id === parseInt(crimeChosenEvent.detail.crimeThatWasChosen)
     })
     // debugger
-    console.log(chosenConvictionObject.name)
+    // console.log(chosenConvictionObject.name)
     
     // Get a copy of the array of criminals from the data provider
     const criminalsArray = useCriminals()
+    const crimianlFacilitiesArray = useCriminalFacilities()
+    const facilitiesArray = useFacilities()
     
     const filteredCriminalsArray = criminalsArray.filter(criminalObj => criminalObj.conviction === chosenConvictionObject.name)
     
@@ -52,7 +74,7 @@ eventHub.addEventListener("crimeChosen", crimeChosenEvent => {
     Then invoke render() and pass the filtered collection as
     an argument
     */
-    render(filteredCriminalsArray)
+    render(filteredCriminalsArray, crimianlFacilitiesArray, facilitiesArray)
   }
 })
 
@@ -70,10 +92,14 @@ const filteredCriminalsArray = criminalsArray.filter(
     }
   }
 )
+
+const crimianlFacilitiesArray = useCriminalFacilities()
+const facilitiesArray = useFacilities()
+
 /*
 Then invoke render() and pass the filtered collection as an argument
  */
-  render(filteredCriminalsArray)
+  render(filteredCriminalsArray, crimianlFacilitiesArray, facilitiesArray)
   
 })
 

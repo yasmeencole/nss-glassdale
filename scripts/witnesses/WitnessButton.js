@@ -2,7 +2,7 @@
 // import { Witness } from "./Witness.js"
 
 const eventHub = document.querySelector(".container")
-const contentTarget = document.querySelector(".witnessesButton")
+const contentTarget = document.querySelector(".button__witnesses")
 // debugger
 
 export const renderWitnessButton = () => {
@@ -17,7 +17,7 @@ eventHub.addEventListener("click", clickEvent => {
 
         const witnessButtonCustomEvent = new CustomEvent("WitnessesClicked")
         
-        console.log('witnessButtonCustomEvent: ', witnessButtonCustomEvent);
+        // console.log('witnessButtonCustomEvent: ', witnessButtonCustomEvent);
         eventHub.dispatchEvent(witnessButtonCustomEvent)
 }
 })

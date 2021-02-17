@@ -8,6 +8,8 @@ import "./notes/NoteList.js"
 import { renderWitnessButton } from "./witnesses/WitnessButton.js"
 import "./witnesses/WitnessList.js"
 import { renderCriminalsButton } from "./criminals/ShowCriminalsButton.js"
+// import { DisplayFacilitiesButton } from "./facility/DisplayFacilitiesButton.js"
+
 
 // import { saveNote } from "./notes/NoteDataProvider.js"
 OfficerList();
@@ -19,6 +21,8 @@ ShowNotesButton();
 
 renderWitnessButton();
 renderCriminalsButton();
+
+// DisplayFacilitiesButton();
 
 console.log("Be as Ambitious as Elon!")
 

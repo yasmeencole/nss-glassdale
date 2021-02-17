@@ -6,7 +6,7 @@ const contentContainer = document.querySelector(".associateDetails")
 export const render = (associatesObj) => {
 
     const associatesHTMLRepresentations = `
-    <h2>Known associates for ${criminalObj.name}</h1>
+    <h3>Known associates for ${criminalObj.name}</h3>
     
     <section class="associate__container">
     <div class="associate__name">Name: ${associatesObj.name}</div>

@@ -1,21 +1,21 @@
 import { useWitnesses, getWitnesses } from "../witnesses/WitnessProvider.js"
-import { Witness } from "./Witness.js"
+import { WitnessStatement } from "./Witness.js"
 
 const eventHub = document.querySelector(".container")
 const witnessesContainer = document.querySelector(".witnessesContainer")
 
 
-eventHub.addEventListener("WitnessesClicked", (clickEvent) => {
+eventHub.addEventListener("WitnessesClicked", () => {
     // console.log("event", clickEvent)
     // const selectedCriminalId = clickEvent.detail.criminalId
     // const criminalsArray = useWitnesses()
     // const selectedCriminal = criminalsArray.find((criminalObj) => criminalObj.id === selectedCriminalId)
     // console.log('selectedCriminal: ', selectedCriminal)
-    WitnessList(selectedCriminal)
+    WitnessList()
 
 })
 
-eventHub.addEventListener("criminalsClicked", (clickEvent) => {
+eventHub.addEventListener("criminalsClicked", () => {
     witnessesContainer.innerHTML = ""
 })
 
@@ -29,10 +29,10 @@ const WitnessList = () => {
 }
 
 
-const render = (witnessArray) => {
+const render = (witnessStatementsArray) => {
     let witnessHTMLRepresentations = ""
-    for (const witnessObj of witnessArray) {
-        witnessHTMLRepresentations += Witness(witnessObj)
+    for (const witnessObj of witnessStatementsArray) {
+        witnessHTMLRepresentations += WitnessStatement(witnessObj)
     }
 
     witnessesContainer.innerHTML = `
